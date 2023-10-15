@@ -49,14 +49,14 @@ const vec_colormap = [[0, 0, 0],          # 0
                       [224, 224, 192]];   # 21
 
 
-const pascalvoc_classnumbers = sort( Dict(zip(vec_classes, vec_classnames)) )
+const pv_classnumbers = sort( Dict(zip(vec_classes, vec_classnames)) )
 
-const pascalvoc_classnames   = sort( Dict(zip(vec_classnames, vec_classes)); byvalue=true )
+const pv_classnames   = sort( Dict(zip(vec_classnames, vec_classes)); byvalue=true )
 
-const pascalvoc_colormap     = sort( Dict(zip(vec_colormap, vec_classes)); byvalue=true )
+const pv_colormap     = sort( Dict(zip(vec_colormap, vec_classes)); byvalue=true )
 
 
-function pascalvoc_rgb2class(mask::AbstractArray{RGB{N0f8}, 2})
+function pv_rgb2class(mask::AbstractArray{RGB{N0f8}, 2})
     h, w = size(mask)
     # X    = zeros(Int, (h,w))
     X    = Matrix{Int}(undef, (h,w))
@@ -64,7 +64,7 @@ function pascalvoc_rgb2class(mask::AbstractArray{RGB{N0f8}, 2})
 
     @floop begin
         for i in 1:h; for j in 1:w
-            X[i,j] = pascalvoc_colormap[ [m[1, i, j], m[2, i, j], m[3, i, j]] ]
+            X[i,j] = pv_colormap[ [m[1, i, j], m[2, i, j], m[3, i, j]] ]
         end; end
     end
 

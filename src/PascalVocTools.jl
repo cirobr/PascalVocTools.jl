@@ -7,7 +7,7 @@ import Colors: RGB, Gray, N0f8
 import FLoops: @floop
 
 
-include("./pascalvoc.jl")
+include("./main.jl")
 
 
 end
