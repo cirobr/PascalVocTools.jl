@@ -5,7 +5,7 @@
 Julia toolset for handling PascalVOC-2012 dataset
 
 ## Usage
-using PascalVocTools; pv = PascalVocTools
+using PascalVocTools
 
 pv_classnumbers # Dictionary with applicable class numbers (keys) and names (values)
 pv_classnames   # Dictionary with applicable class names (keys) and numbers (values)
