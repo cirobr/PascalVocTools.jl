@@ -56,7 +56,7 @@ const pascalvoc_classnames   = sort( Dict(zip(vec_classnames, vec_classes)); byv
 const pascalvoc_colormap     = sort( Dict(zip(vec_colormap, vec_classes)); byvalue=true )
 
 
-function pascalvoc_rgb2class(mask::Matrix{RGB{N0f8}})
+function pascalvoc_rgb2class(mask) #::AbstractArray{RGB{N0f8}, 2})
     h, w = size(mask)
     # X    = zeros(Int, (h,w))
     X    = Matrix{Int}(undef, (h,w))
