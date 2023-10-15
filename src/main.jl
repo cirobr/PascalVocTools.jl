@@ -1,4 +1,4 @@
-const vec_classes = 0:21
+const vec_classes = 0:20
 
 
 const vec_classnames = ["background",     # 0
@@ -21,8 +21,7 @@ const vec_classnames = ["background",     # 0
                         "sheep",          # 17
                         "sofa",           # 18
                         "train",          # 19
-                        "tv/monitor",     # 20
-                        "edges"];         # 21
+                        "tv/monitor"]     # 20
 
 
 const vec_colormap = [[0, 0, 0],          # 0
@@ -45,8 +44,10 @@ const vec_colormap = [[0, 0, 0],          # 0
                       [128, 64, 0],       # 17
                       [0, 192, 0],        # 18
                       [128, 192, 0],      # 19
-                      [0, 64, 128],       # 20
-                      [224, 224, 192]];   # 21
+                      [0, 64, 128]]       # 20
+
+# [224, 224, 192]   # border
+# [138, 138, 119]
 
 
 const pv_classnumbers = sort( Dict(zip(vec_classes, vec_classnames)) )
@@ -64,7 +65,8 @@ function pv_rgb2class(mask::AbstractArray{RGB{N0f8}, 2})
 
     @floop begin
         for i in 1:h; for j in 1:w
-            X[i,j] = pv_colormap[ [m[1, i, j], m[2, i, j], m[3, i, j]] ]
+            # X[i,j] = pv_colormap[ [m[1, i, j], m[2, i, j], m[3, i, j]] ]
+            X[i,j] = get(pv_colormap, ([m[1, i, j], m[2, i, j], m[3, i, j]]), 0)
         end; end
     end
 
