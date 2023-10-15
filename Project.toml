@@ -1,0 +1,13 @@
+name = "PascalVocTools"
+uuid = "3fdd8fd9-3429-41df-93e4-b1e51c23000a"
+authors = ["Ciro B Rosa <ciro.rosa@alumni.usp.br>"]
+version = "1.0.0-DEV"
+
+[compat]
+julia = "1.9"
+
+[extras]
+Test = "8dfed614-e22c-5e08-85e1-65c5234f0b40"
+
+[targets]
+test = ["Test"]
