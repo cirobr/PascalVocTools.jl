@@ -11,6 +11,10 @@ ImageCore = "a09fc81d-aa75-5fe9-8630-4744c3626534"
 
 [compat]
 julia = "1.9"
+Colors = "0.12"
+DataStructures = "0.18"
+FLoops = "0.2"
+ImageCore = "0.10"
 
 [extras]
 Test = "8dfed614-e22c-5e08-85e1-65c5234f0b40"
