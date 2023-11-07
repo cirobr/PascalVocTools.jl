@@ -1,4 +1,4 @@
-function pv_download(folder::String)
+function voc_download(folder::String)
     pv_data_folder = folder
     if pv_data_folder[end] == "/"   pv_data_folder = pv_data_folder[1:end-1]   end
     mkpath(pv_data_folder)
