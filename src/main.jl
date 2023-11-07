@@ -68,7 +68,7 @@ function voc_rgb2class(mask::AbstractArray{RGB{N0f8}, 2})
     @floop begin
         for i in 1:h; for j in 1:w
             # X[i,j] = pv_colormap[ [m[1, i, j], m[2, i, j], m[3, i, j]] ]
-            X[i,j] = get(voc_colormap, ([m[1, i, j], m[2, i, j], m[3, i, j]]), 0)
+            X[i,j] = get(voc_colormap2classnumbers, ([m[1, i, j], m[2, i, j], m[3, i, j]]), 0)
         end; end
     end
 
