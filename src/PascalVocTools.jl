@@ -1,7 +1,7 @@
 module PascalVocTools
 
 
-export pv_classnumbers, pv_classnames, pv_colormap, pv_rgb2class
+export voc_classnumbers, voc_classnames, voc_colormap, voc_rgb2class, voc_download
 
 import DataStructures
 import ImageCore
@@ -11,7 +11,6 @@ import Downloads
 
 
 include("./main.jl")
-include("./pv_download.jl")
 
 
 end

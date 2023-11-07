@@ -72,3 +72,22 @@ function voc_rgb2class(mask::AbstractArray{RGB{N0f8}, 2})
 
     return X
 end
+
+
+function voc_download(folder::String)
+    # create folder
+    voc_data_folder = folder
+    if voc_data_folder[end] == "/"   voc_data_folder = voc_data_folder[1:end-1]   end
+    mkpath(voc_data_folder)
+    
+    # download data
+    if !isfile(voc_data_folder * "/VOCtrainval_11-May-2012.tar")
+        @info "Downloading PascalVOC-2012 data..."
+        Downloads.download("http://host.robots.ox.ac.uk/pascal/VOC/voc2012/VOCtrainval_11-May-2012.tar",
+                            voc_data_folder * "/VOCtrainval_11-May-2012.tar")
+    end
+
+    
+    # unzip data
+    run(`tar -xvf $(voc_data_folder)/VOCtrainval_11-May-2012.tar -C $(voc_data_folder)`)
+end
