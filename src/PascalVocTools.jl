@@ -9,7 +9,6 @@ export voc_classnumber2classname, voc_classname2classnumber,
 import DataStructures
 import ImageCore
 import Colors: RGB, Gray, N0f8
-import FLoops: @floop
 import Downloads
 
 

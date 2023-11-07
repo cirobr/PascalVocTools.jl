@@ -64,11 +64,9 @@ function voc_rgb2classes(mask::AbstractArray{RGB{N0f8}, 2})
     X    = Matrix{Int}(undef, (h,w))
     m    = ImageCore.channelview(mask) .* 255 .|> Int   # CHW
 
-    # @floop begin
-        for i in 1:h; for j in 1:w
-            X[i,j] = get(voc_colormap2classnumber, ([m[1, i, j], m[2, i, j], m[3, i, j]]), 0)
-        end; end
-    # end
+    for i in 1:h; for j in 1:w
+        X[i,j] = get(voc_colormap2classnumber, ([m[1, i, j], m[2, i, j], m[3, i, j]]), 0)
+    end; end
 
     return X
 end
