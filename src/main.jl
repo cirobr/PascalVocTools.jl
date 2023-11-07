@@ -54,7 +54,9 @@ const voc_classnumbers = sort( Dict(zip(vec_classes, vec_classnames)) )
 
 const voc_classnames   = sort( Dict(zip(vec_classnames, vec_classes)); byvalue=true )
 
-const voc_colormap     = sort( Dict(zip(vec_colormap, vec_classes)); byvalue=true )
+const voc_colormap2classnumbers = sort( Dict(zip(vec_colormap, vec_classes)); byvalue=true )
+
+const voc_classnumbers2colormap = sort( Dict(zip(vec_classes, vec_colormap)) )
 
 
 function voc_rgb2class(mask::AbstractArray{RGB{N0f8}, 2})
