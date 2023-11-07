@@ -7,9 +7,12 @@ Julia toolset for handling PascalVOC-2012 dataset
 ## Usage
 using PascalVocTools
 
-pv_classnumbers # Dictionary with applicable class numbers (keys) and names (values)
-pv_classnames   # Dictionary with applicable class names (keys) and numbers (values)
-pv_colormap     # Dictionary with applicable RGB colormaps (keys) and numbers (values)
+voc_classnumber2classname    # Dictionary with class numbers (keys) and names (values)
+voc_classname2classnumber    # Dictionary with class names (keys) and numbers (values)
+voc_colormap2classnumber     # Dictionary with RGB colormaps (keys) and numbers (values)
+voc_classnumber2colormap
 
-pv_rgb2class(mask::Matrix{RGB{N0f8}})
+voc_rgb2classes(mask::Matrix{RGB{N0f8}})
 Function that accepts a mask from SegmentationClass folder as input, and outputs an array of same dimension where each pixel is the numeric integer corresponding to the class number
+
+voc_download

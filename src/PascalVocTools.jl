@@ -1,7 +1,10 @@
 module PascalVocTools
 
 
-export voc_classnumbers, voc_classnames, voc_colormap, voc_rgb2class, voc_download
+export voc_classnumber2classname, voc_classname2classnumber,
+       voc_colormap2classnumber, voc_classnumber2colormap,
+       voc_rgb2classes,
+       voc_download
 
 import DataStructures
 import ImageCore
