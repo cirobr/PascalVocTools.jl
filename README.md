@@ -13,5 +13,5 @@ using PascalVocTools
 * voc_colormap2classnumber:   Dictionary with RGB colormaps (keys) and numbers (values)
 * voc_classnumber2colormap
 
-* voc_rgb2classes(mask::Matrix{RGB{N0f8}})
+* voc_rgb2classes(mask::Matrix{RGB{N0f8}}):\
 Function that accepts a mask from SegmentationClass folder as input, and outputs an array of same dimension where each pixel is the numeric integer corresponding to the class number
