@@ -2,7 +2,7 @@
 	"image": "mcr.microsoft.com/devcontainers/universal:2",
 	"features": {
 		"ghcr.io/julialang/devcontainer-features/julia:1": {
-			"channel": "1.10.0"   //"release"
+			"channel": "1.10"   //"release"
 		}
 	}
 }
