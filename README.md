@@ -4,7 +4,7 @@
 
 [![Build Status](https://github.com/cirobr/PascalVocTools.jl/actions/workflows/CI.yml/badge.svg?branch=main)](https://github.com/cirobr/PascalVocTools.jl/actions/workflows/CI.yml?query=branch%3Amain)
 
-Julia toolset for handling PascalVOC-2012 dataset
+Toolset for handling PascalVOC-2012 dataset
 
 ## Usage
 using PascalVocTools
