@@ -6,9 +6,8 @@ export voc_classnumber2classname, voc_classname2classnumber,
        voc_rgb2classes,
        voc_download
 
+import Images: RGB, Gray, N0f8
 import DataStructures
-import ImageCore
-import Colors: RGB, Gray, N0f8
 import Downloads
 
 
