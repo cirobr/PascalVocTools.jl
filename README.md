@@ -20,8 +20,11 @@ Function that accepts a mask from SegmentationClass folder as input, and outputs
 
 ## Versions
 
+### v0.1.4
+* Functions are renamed.
+
 ### v0.1.2
-* added Images as dependency
+* Added Images as dependency.
 
 ### v0.1.1
 * Added compatibility with Julia 1.11

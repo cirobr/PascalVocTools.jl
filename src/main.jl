@@ -50,14 +50,18 @@ const vec_colormap = [[0, 0, 0],          # 0
 # [138, 138, 119]
 
 
-const voc_classnumber2classname = sort( Dict(zip(vec_classes, vec_classnames)) )
+const voc_classnumbers = sort( Dict(zip(vec_classes, vec_classnames)) )   # harmonization with CocoTools
+const voc_classnumber2classname = voc_classnumbers
 
-const voc_classname2classnumber = sort( Dict(zip(vec_classnames, vec_classes)); byvalue=true )
+const voc_classnames = sort( Dict(zip(vec_classnames, vec_classes)); byvalue=true )   # harmonization with CocoTools
+const voc_classname2classnumber = voc_classnames
 
-const voc_colormap2classnumber  = sort( Dict(zip(vec_colormap, vec_classes)); byvalue=true )
+const voc_colormaps = sort( Dict(zip(vec_colormap, vec_classes)); byvalue=true )
+const voc_colormaps2classnumbers = voc_colormaps
+const voc_colormap2classnumber  = voc_colormaps
 
-const voc_classnumber2colormap  = sort( Dict(zip(vec_classes, vec_colormap)) )
-
+const voc_classnumbers2colormaps = sort( Dict(zip(vec_classes, vec_colormap)) )
+const voc_classnumber2colormap = voc_classnumbers2colormaps
 
 function voc_rgb2classes(mask::AbstractArray{RGB{N0f8}, 2})
     h, w = size(mask)
