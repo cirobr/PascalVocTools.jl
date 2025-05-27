@@ -17,17 +17,3 @@ using PascalVocTools
 
 * voc_rgb2classes(mask::Matrix{RGB{N0f8}}):\
 Function that accepts a mask from SegmentationClass folder as input, and outputs an array of same dimension where each pixel is the numeric integer corresponding to the class number
-
-## Versions
-
-### v0.1.4
-* Functions are renamed.
-
-### v0.1.2
-* Added Images as dependency.
-
-### v0.1.1
-* Added compatibility with Julia 1.11
-
-### v0.1
-* First commit
