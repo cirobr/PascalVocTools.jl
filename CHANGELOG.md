@@ -1,3 +1,7 @@
+### v0.1.5
+* Functions default to background if class is not existent.
+* Change dictionaries to functions.
+
 ### v0.1.4
 * Functions are renamed
 
