@@ -1,5 +1,5 @@
 using Pkg
-envpath = expanduser("../")
+envpath = expanduser("~/envs/dev/")
 Pkg.activate(envpath)
 using PascalVocTools; pv=PascalVocTools
 
