@@ -7,7 +7,6 @@ export voc_classnumbers, voc_classnames,
        voc_download
 
 import Images: RGB, Gray, N0f8, channelview
-import DataStructures
 import Downloads
 
 
