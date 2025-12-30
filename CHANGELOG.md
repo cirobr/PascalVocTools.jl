@@ -1,5 +1,8 @@
+### v0.1.6
+* Functions default to 255 (ignore class) if class does not exist.
+
 ### v0.1.5
-* Functions default to background if class is not existent.
+* Functions default to background if class does not exist.
 * Change dictionaries to functions.
 
 ### v0.1.4

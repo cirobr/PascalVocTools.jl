@@ -1,4 +1,4 @@
-const vec_classes = 0:20
+const vec_classes = vcat(0:20)
 
 
 const vec_classnames = [
@@ -22,7 +22,7 @@ const vec_classnames = [
     "sheep",            # 17
     "sofa",             # 18
     "train",            # 19
-    "tvmonitor"         # 20
+    "tvmonitor",        # 20
 ]
 
 const vec_colormap = [
@@ -53,23 +53,23 @@ const vec_colormap = [
 # [138, 138, 119]
 
 
-const classnumbers = sort( Dict(zip(vec_classes, vec_classnames)) )   # harmonization with CocoTools
+const classnumbers = sort( Dict(zip(vec_classes, vec_classnames)) )
 function voc_classnumbers(class::Int)
-    return get(classnumbers, class, classnumbers[0])   # 0 is background
+    return get(classnumbers, class, "ignore")
 end
 const voc_classnumber2classname = voc_classnumbers
 
 
-const classnames = sort( Dict(zip(vec_classnames, vec_classes)); byvalue=true )   # harmonization with CocoTools
+const classnames = sort( Dict(zip(vec_classnames, vec_classes)); byvalue=true )
 function voc_classnames(name::String)
-    return get(classnames, name, classnames["background"])   # "background" is default
+    return get(classnames, name, 255)   # 255 is ignore class
 end
 const voc_classname2classnumber = voc_classnames
 
 
 const colormaps = sort( Dict(zip(vec_colormap, vec_classes)); byvalue=true )
 function voc_colormaps(colormap::AbstractVector{<:Integer})
-    return get(colormaps, colormap, colormaps[[0, 0, 0]])   # [0, 0, 0] is background
+    return get(colormaps, colormap, 255)   # 255 is ignore class
 end
 const voc_colormaps2classnumbers = voc_colormaps
 const voc_colormap2classnumber   = voc_colormaps
@@ -77,7 +77,7 @@ const voc_colormap2classnumber   = voc_colormaps
 
 const classnumbers2colormaps = sort( Dict(zip(vec_classes, vec_colormap)) )
 function voc_classnumbers2colormaps(class::Int)
-    return get(classnumbers2colormaps, class, classnumbers2colormaps[0])   # 0 is background
+    return get(classnumbers2colormaps, class, [255, 255, 255])   # 255 is ignore class
 end
 const voc_classnumber2colormap = voc_classnumbers2colormaps
 
