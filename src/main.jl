@@ -1,7 +1,7 @@
-const vec_classes = vcat(0:20)
+vec_classes = vcat(0:20)
 
 
-const vec_classnames = [
+vec_classnames = [
     "background",       # 0
     "aeroplane",        # 1
     "bicycle",          # 2
@@ -25,7 +25,7 @@ const vec_classnames = [
     "tvmonitor",        # 20
 ]
 
-const vec_colormap = [
+vec_colormap = [
     [0, 0, 0],          # 0
     [128, 0, 0],        # 1
     [0, 128, 0],        # 2
@@ -46,40 +46,40 @@ const vec_colormap = [
     [128, 64, 0],       # 17
     [0, 192, 0],        # 18
     [128, 192, 0],      # 19
-    [0, 64, 128]        # 20
+    [0, 64, 128],       # 20
 ]
 
-# [224, 224, 192]   # border
+void_color = [224, 224, 192]    # 255
 # [138, 138, 119]
 
 
-const classnumbers = sort( Dict(zip(vec_classes, vec_classnames)) )
+classnumbers = sort( Dict(zip(vec_classes, vec_classnames)) )
 function voc_classnumbers(class::Int)
-    return get(classnumbers, class, "ignore")
+    return get(classnumbers, class, "void")
 end
-const voc_classnumber2classname = voc_classnumbers
+voc_classnumber2classname = voc_classnumbers
 
 
-const classnames = sort( Dict(zip(vec_classnames, vec_classes)); byvalue=true )
+classnames = sort( Dict(zip(vec_classnames, vec_classes)); byvalue=true )
 function voc_classnames(name::String)
-    return get(classnames, name, 255)   # 255 is ignore class
+    return get(classnames, name, 255)   # 255 is void class
 end
-const voc_classname2classnumber = voc_classnames
+voc_classname2classnumber = voc_classnames
 
 
-const colormaps = sort( Dict(zip(vec_colormap, vec_classes)); byvalue=true )
+colormaps = sort( Dict(zip(vec_colormap, vec_classes)); byvalue=true )
 function voc_colormaps(colormap::AbstractVector{<:Integer})
-    return get(colormaps, colormap, 255)   # 255 is ignore class
+    return get(colormaps, colormap, 255)   # 255 is void class
 end
-const voc_colormaps2classnumbers = voc_colormaps
-const voc_colormap2classnumber   = voc_colormaps
+voc_colormaps2classnumbers = voc_colormaps
+voc_colormap2classnumber   = voc_colormaps
 
 
-const classnumbers2colormaps = sort( Dict(zip(vec_classes, vec_colormap)) )
+classnumbers2colormaps = sort( Dict(zip(vec_classes, vec_colormap)) )
 function voc_classnumbers2colormaps(class::Int)
-    return get(classnumbers2colormaps, class, [255, 255, 255])   # 255 is ignore class
+    return get(classnumbers2colormaps, class, void_color)
 end
-const voc_classnumber2colormap = voc_classnumbers2colormaps
+voc_classnumber2colormap = voc_classnumbers2colormaps
 
 
 function voc_rgb2classes(mask::AbstractArray{RGB{N0f8}, 2})
@@ -88,7 +88,7 @@ function voc_rgb2classes(mask::AbstractArray{RGB{N0f8}, 2})
     m = channelview(mask) .* 255 .|> Int   # CHW
 
     for i in 1:h; for j in 1:w
-        X[i,j] = voc_colormaps2classnumbers([m[1,i,j], m[2,i,j], m[3,i,j]])
+        X[i,j] = voc_colormap2classnumber([m[1,i,j], m[2,i,j], m[3,i,j]])
     end; end
 
     return X
