@@ -7,7 +7,7 @@ x3 = Images.RGB{N0f8}(x3...)
 x4 = (0, 0, 128) ./ 255f0        # 4
 x4 = Images.RGB{N0f8}(x4...)
 
-v=[x1,x2,x3,x4]
-m = reshape(v, 2, 2)
+v = [x1,x2,x3,x4]
+c = reshape(v, 2, 2)   # 2x2 color matrix
 
-@test voc_rgb2classes(m) == reshape([1, 2, 3, 4], 2, 2)
+@test voc_rgb2classes(c) == reshape([1, 2, 3, 4], 2, 2)
