@@ -1,6 +1,5 @@
 vec_classes = vcat(0:20)
 
-
 vec_classnames = [
     "background",       # 0
     "aeroplane",        # 1
@@ -50,8 +49,8 @@ vec_colormap = [
 ]
 
 void_color = (224, 224, 192)    # 255
-# [138, 138, 119]
 
+voc_colors = [RGB{N0f8}(r/255f0, g/255f0, b/255f0) for (r,g,b) in vec_colormap]
 
 classnumbers = sort( Dict(zip(vec_classes, vec_classnames)) )
 function voc_classnumbers(class::Int)
@@ -112,3 +111,6 @@ function voc_download(folder::String)
     # unzip data
     run(`tar -xvf $(voc_data_folder)/VOCtrainval_11-May-2012.tar -C $(voc_data_folder)`)
 end
+
+
+
