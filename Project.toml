@@ -1,6 +1,6 @@
 name = "PascalVocTools"
 uuid = "3fdd8fd9-3429-41df-93e4-b1e51c23000a"
-version = "0.0.2"
+version = "0.0.3"
 authors = ["Ciro B Rosa <ciro.rosa@alumni.usp.br>"]
 
 [deps]

@@ -26,30 +26,30 @@ vec_classnames = [
 ]
 
 vec_colormap = [
-    [0, 0, 0],          # 0
-    [128, 0, 0],        # 1
-    [0, 128, 0],        # 2
-    [128, 128, 0],      # 3
-    [0, 0, 128],        # 4
-    [128, 0, 128],      # 5
-    [0, 128, 128],      # 6
-    [128, 128, 128],    # 7
-    [64, 0, 0],         # 8
-    [192, 0, 0],        # 9
-    [64, 128, 0],       # 10
-    [192, 128, 0],      # 11
-    [64, 0, 128],       # 12
-    [192, 0, 128],      # 13
-    [64, 128, 128],     # 14
-    [192, 128, 128],    # 15
-    [0, 64, 0],         # 16
-    [128, 64, 0],       # 17
-    [0, 192, 0],        # 18
-    [128, 192, 0],      # 19
-    [0, 64, 128],       # 20
+    (0, 0, 0),          # 0
+    (128, 0, 0),        # 1
+    (0, 128, 0),        # 2
+    (128, 128, 0),      # 3
+    (0, 0, 128),        # 4
+    (128, 0, 128),      # 5
+    (0, 128, 128),      # 6
+    (128, 128, 128),    # 7
+    (64, 0, 0),         # 8
+    (192, 0, 0),        # 9
+    (64, 128, 0),       # 10
+    (192, 128, 0),      # 11
+    (64, 0, 128),       # 12
+    (192, 0, 128),      # 13
+    (64, 128, 128),     # 14
+    (192, 128, 128),    # 15
+    (0, 64, 0),         # 16
+    (128, 64, 0),       # 17
+    (0, 192, 0),        # 18
+    (128, 192, 0),      # 19
+    (0, 64, 128),       # 20
 ]
 
-void_color = [224, 224, 192]    # 255
+void_color = (224, 224, 192)    # 255
 # [138, 138, 119]
 
 
@@ -68,7 +68,7 @@ voc_classname2classnumber = voc_classnames
 
 
 colormaps = sort( Dict(zip(vec_colormap, vec_classes)); byvalue=true )
-function voc_colormaps(colormap::AbstractVector{<:Integer})
+function voc_colormaps(colormap::Tuple{Int,Int,Int})
     return get(colormaps, colormap, 255)   # 255 is void class
 end
 voc_colormaps2classnumbers = voc_colormaps
@@ -88,7 +88,7 @@ function voc_rgb2classes(mask::AbstractArray{RGB{N0f8}, 2})
     m = channelview(mask) .* 255 .|> Int   # CHW
 
     for i in 1:h; for j in 1:w
-        X[i,j] = voc_colormap2classnumber([m[1,i,j], m[2,i,j], m[3,i,j]])
+        X[i,j] = voc_colormap2classnumber((m[1,i,j], m[2,i,j], m[3,i,j]))
     end; end
 
     return X
