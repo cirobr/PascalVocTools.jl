@@ -24,7 +24,7 @@ vec_classnames = [
     "tvmonitor",        # 20
 ]
 
-vec_colormap = [
+v1 = [
     (0, 0, 0),          # 0
     (128, 0, 0),        # 1
     (0, 128, 0),        # 2
@@ -47,10 +47,18 @@ vec_colormap = [
     (128, 192, 0),      # 19
     (0, 64, 128),       # 20
 ]
+void_color = (224, 224, 192)
+v2 = [void_color for i in 21:255]
+vec_colormap = vcat(v1, v2)
+vec_colors = [RGB{N0f8}(r/255f0, g/255f0, b/255f0) for (r,g,b) in vec_colormap]
 
-void_color = (224, 224, 192)    # 255
 
-voc_colors = [RGB{N0f8}(r/255f0, g/255f0, b/255f0) for (r,g,b) in vec_colormap]
+function voc_colors(class::Int)
+    @assert class ∈ 0:255 || error("Class not in 0:255 range")
+    c = class + 1
+    return vec_colors[c]
+end
+
 
 classnumbers = sort( Dict(zip(vec_classes, vec_classnames)) )
 function voc_classnumbers(class::Int)
@@ -111,6 +119,3 @@ function voc_download(folder::String)
     # unzip data
     run(`tar -xvf $(voc_data_folder)/VOCtrainval_11-May-2012.tar -C $(voc_data_folder)`)
 end
-
-
-

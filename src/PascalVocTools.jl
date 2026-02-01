@@ -1,7 +1,7 @@
 module PascalVocTools
 
 
-export voc_classnumbers, voc_classnames,
+export voc_colors, voc_classnumbers, voc_classnames,
        voc_colormaps2classnumbers, voc_classnumbers2colormaps,
        voc_rgb2classes,
        voc_download

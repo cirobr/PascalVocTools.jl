@@ -9,3 +9,20 @@
 
 @test voc_classnumbers2colormaps(10) == (64, 128, 0)
 @test voc_classnumbers2colormaps(30) == (224, 224, 192)  # 30 is not a valid class, should return void color
+
+c = (0, 0, 0) ./ 255
+c = Images.RGB{N0f8}(c...)
+@test voc_colors(0) == c     # class 0
+
+c = (128, 0, 0) ./ 255
+c = Images.RGB{N0f8}(c...)
+@test voc_colors(1) == c     # class 1
+
+c = (0, 64, 128) ./ 255
+c = Images.RGB{N0f8}(c...)
+@test voc_colors(20) == c    # class 20
+
+c = (224, 224, 192) ./ 255   # void color
+c = Images.RGB{N0f8}(c...)
+@test voc_colors(21) == c    # void classes
+@test voc_colors(255) == c

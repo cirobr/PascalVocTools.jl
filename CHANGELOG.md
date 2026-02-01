@@ -1,6 +1,6 @@
 ### v0.0.3
 * Change color representations from vectors to triplets [...] -> (...);
-* Added voc_colors colormap.
+* Added voc_colors() colormap function.
 
 ### v0.0.2
 * Void color corrected to [224, 224, 192].
