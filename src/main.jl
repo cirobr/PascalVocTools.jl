@@ -50,7 +50,7 @@ v1 = [
 void_color = (224, 224, 192)
 v2 = [void_color for i in 21:255]
 colormap = vcat(v1, v2)
-colors = [RGB{N0f8}(r/255f0, g/255f0, b/255f0) for (r,g,b) in colormap]
+colors = [RGB{N0f8}(r/255, g/255, b/255) for (r,g,b) in colormap]
 
 
 function voc_colors(class::Int)
