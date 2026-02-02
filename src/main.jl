@@ -1,6 +1,6 @@
-vec_classes = vcat(0:20)
+classes = vcat(0:20)
 
-vec_classnames = [
+classnames = [
     "background",       # 0
     "aeroplane",        # 1
     "bicycle",          # 2
@@ -49,44 +49,39 @@ v1 = [
 ]
 void_color = (224, 224, 192)
 v2 = [void_color for i in 21:255]
-vec_colormap = vcat(v1, v2)
-vec_colors = [RGB{N0f8}(r/255f0, g/255f0, b/255f0) for (r,g,b) in vec_colormap]
+colormap = vcat(v1, v2)
+colors = [RGB{N0f8}(r/255f0, g/255f0, b/255f0) for (r,g,b) in colormap]
 
 
 function voc_colors(class::Int)
     @assert class ∈ 0:255 || error("Class not in 0:255 range")
     c = class + 1
-    return vec_colors[c]
+    return colors[c]
 end
 
 
-classnumbers = sort( Dict(zip(vec_classes, vec_classnames)) )
-function voc_classnumbers(class::Int)
+classnumbers = sort( Dict(zip(classes, classnames)) )
+function voc_classnumber2classname(class::Int)
     return get(classnumbers, class, "void")
 end
-voc_classnumber2classname = voc_classnumbers
 
 
-classnames = sort( Dict(zip(vec_classnames, vec_classes)); byvalue=true )
-function voc_classnames(name::String)
+classnames = sort( Dict(zip(classnames, classes)); byvalue=true )
+function voc_classname2classnumber(name::String)
     return get(classnames, name, 255)   # 255 is void class
 end
-voc_classname2classnumber = voc_classnames
 
 
-colormaps = sort( Dict(zip(vec_colormap, vec_classes)); byvalue=true )
-function voc_colormaps(colormap::Tuple{Int,Int,Int})
+colormaps = sort( Dict(zip(colormap, classes)); byvalue=true )
+function voc_colormap2classnumber(colormap::Tuple{Int,Int,Int})
     return get(colormaps, colormap, 255)   # 255 is void class
 end
-voc_colormaps2classnumbers = voc_colormaps
-voc_colormap2classnumber   = voc_colormaps
 
 
-classnumbers2colormaps = sort( Dict(zip(vec_classes, vec_colormap)) )
-function voc_classnumbers2colormaps(class::Int)
+classnumbers2colormaps = sort( Dict(zip(classes, colormap)) )
+function voc_classnumber2colormap(class::Int)
     return get(classnumbers2colormaps, class, void_color)
 end
-voc_classnumber2colormap = voc_classnumbers2colormaps
 
 
 function voc_rgb2classes(mask::AbstractArray{RGB{N0f8}, 2})
@@ -114,7 +109,6 @@ function voc_download(folder::String)
         Downloads.download("http://host.robots.ox.ac.uk/pascal/VOC/voc2012/VOCtrainval_11-May-2012.tar",
                             voc_data_folder * "/VOCtrainval_11-May-2012.tar")
     end
-
     
     # unzip data
     run(`tar -xvf $(voc_data_folder)/VOCtrainval_11-May-2012.tar -C $(voc_data_folder)`)

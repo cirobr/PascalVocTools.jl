@@ -1,3 +1,6 @@
+### v0.0.4
+* Functions renamed.
+
 ### v0.0.3
 * Change color representations from vectors to triplets [...] -> (...);
 * Added voc_colors() colormap function.
