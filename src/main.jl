@@ -25,14 +25,14 @@ class_names = [
     "void",             # 255
 ]
 
-dict = Dict(zip(class_numbers, class_names))
-classnumbers = OrderedDict( sort(collect(dict)) )
+dict_numbers = Dict(zip(class_numbers, class_names))
+classnumbers = OrderedDict( sort(collect(dict_numbers)) )
 function classnumber2classname(class::Int)
     return get(classnumbers, class, "void")
 end
 
-dict = Dict(zip(class_names, class_numbers))
-# classnames = OrderedDict( sort(collect(dict), byvalue=true) )
-# function classname2classnumber(name::String)
-#     return get(classnames, name, 255)   # 255 is void class
-# end
+dict_names = Dict(zip(class_names, class_numbers))
+classnames = OrderedDict( sort(collect(dict_names)) )
+function classname2classnumber(name::String)
+    return get(classnames, name, 255)   # 255 is void class
+end

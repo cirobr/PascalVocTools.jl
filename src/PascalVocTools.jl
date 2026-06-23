@@ -2,7 +2,7 @@ module PascalVocTools
 
 
 using DataStructures
-export classnumber2classname, classname2classnumber, classnumbers, classnames
+export classnumbers, classnames, classnumber2classname, classname2classnumber
 
 include("./main.jl")
 
