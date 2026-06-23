@@ -1,3 +1,6 @@
+### v0.0.5
+* Simplified  toolset.
+
 ### v0.0.4
 * Functions renamed.
 

@@ -6,13 +6,12 @@
 
 Toolset for handling PascalVOC-2012 dataset
 
-## Usage
+Download URRL: http://host.robots.ox.ac.uk/pascal/VOC/voc2012/VOCtrainval_11-May-2012.tar
+
+### Usage
+```
 using PascalVocTools
 
-* voc_download(): Download dataset
-* voc_classnumber2classname()
-* voc_classname2classnumber()
-* voc_colormap2classnumber()
-* voc_classnumber2colormap()
-* voc_colors(): Colormap for classes 0:20
-* voc_rgb2classes()
+classnumber2classname(10)
+classname2classnumber("cow")
+```
