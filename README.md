@@ -10,8 +10,8 @@ Download URRL: http://host.robots.ox.ac.uk/pascal/VOC/voc2012/VOCtrainval_11-May
 
 ### Usage
 ```
-using PascalVocTools
+using PascalVocTools; pvt=PascalVocTools
 
-classnumber2classname(10)
-classname2classnumber("cow")
+pvt.classnumber2classname(10)
+pvt.classname2classnumber("cow")
 ```
