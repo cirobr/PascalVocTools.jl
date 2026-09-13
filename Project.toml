@@ -1,14 +1,14 @@
 name = "PascalVocTools"
 uuid = "3fdd8fd9-3429-41df-93e4-b1e51c23000a"
-version = "0.0.5"
+version = "0.0.6"
 authors = ["Ciro B Rosa <ciro.rosa@alumni.usp.br>"]
 
 [deps]
 DataStructures = "864edb3b-99cc-5e75-8d2d-829cb0a9cfe8"
 
 [compat]
-DataStructures = "0.19.5"
-julia = "1.10 - 1.12"
+DataStructures = "0.19"
+julia = "1.10 - 1.13"
 
 [extras]
 Test = "8dfed614-e22c-5e08-85e1-65c5234f0b40"

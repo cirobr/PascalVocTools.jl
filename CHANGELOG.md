@@ -1,3 +1,6 @@
+### v0.0.6
+* Compatibility with Julia v1.13.
+
 ### v0.0.5
 * Simplified  toolset.
 
