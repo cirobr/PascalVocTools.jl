@@ -2,7 +2,7 @@ module PascalVocTools
 
 
 using DataStructures
-include("./main.jl")
+include("main.jl")
 
 
 end # module
