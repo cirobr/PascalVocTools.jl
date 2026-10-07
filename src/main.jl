@@ -1,4 +1,4 @@
-class_numbers = vcat(0:20, 255)
+class_numbers = vcat(0:20)
 
 class_names = [
     "background",       # 0
@@ -22,13 +22,12 @@ class_names = [
     "sofa",             # 18
     "train",            # 19
     "tvmonitor",        # 20
-    "void",             # 255
 ]
 
 dict_numbers = Dict(zip(class_numbers, class_names))
 classnumbers = OrderedDict( sort(collect(dict_numbers)) )
 function classnumber2classname(class::Int)
-    return get(classnumbers, class, "void")
+    return get(classnumbers, class, "void")   # "void" is the default class for unknown class numbers
 end
 
 dict_names = Dict(zip(class_names, class_numbers))
