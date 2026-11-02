@@ -1,4 +1,5 @@
 ### v0.0.2
+* Compat Julia v1.10 - v1.14 pre.
 * Excluded 255/void from valid classes.
 
 ### v0.0.1
